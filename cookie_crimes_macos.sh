@@ -29,7 +29,7 @@ done;
 
 # Make the websocket request and print the cookies to stdout.
 while true; do
-    echo 'Network.getAllCookies' | "$WEBSOCAT_PATH" -n1 --jsonrpc -B 50000000 $(curl -sg http://127.0.0.1:9222/json | grep webSocketDebuggerUrl | cut -d'"' -f4 | head -1) 2>/dev/null && break
+    echo 'Network.getAllCookies' | "$WEBSOCAT_PATH" -n1 -B 50000000 $(curl -sg http://127.0.0.1:9222/json | grep webSocketDebuggerUrl | cut -d'"' -f4 | head -1) 2>/dev/null && break
 done;
 
 # Delete websocat, leaving no trace, like a leaf on the wind.
